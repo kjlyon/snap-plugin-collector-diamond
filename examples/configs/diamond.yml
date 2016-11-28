@@ -1,0 +1,17 @@
+---
+control: 
+  plugins:
+    collector:
+      diamond:
+        versions:
+          1: 
+            config: |
+                {"collectors":{
+                        "PingCollector": {"target_local": "127.0.0.1",                                           
+                                           "bin": "/bin/ping"},
+                        "CPUCollector": {},
+                        "DiskUsageCollector": {},                        
+                        "MemoryCollector": {},
+                        "IPCollector": {},
+                        "VMStatCollector": {}
+                }}

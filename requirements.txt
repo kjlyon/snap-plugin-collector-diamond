@@ -1,0 +1,4 @@
+git+https://github.com/intelsdi-x/snap-plugin-lib-py#egg=snap-plugin-lib-py
+diamond>=4.0.515
+configobj>=5.0.6
+psutil>=5.0.0
