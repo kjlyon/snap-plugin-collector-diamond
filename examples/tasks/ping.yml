@@ -1,0 +1,9 @@
+---
+  version: 1
+  schedule: 
+    type: "simple"
+    interval: "1s"
+  workflow: 
+    collect: 
+      metrics: 
+        /diamond/ping/127_0_0_1: {}
