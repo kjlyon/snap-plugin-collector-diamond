@@ -1,15 +1,15 @@
 [![Join the chat on Slack](https://intelsdi-x.herokuapp.com/badge.svg)](https://intelsdi-x.herokuapp.com/)
 
-# A Snap collector that wraps existing diamond collectors
+# A Snap collector that wraps existing Diamond collectors
 
 [Diamond](https://github.com/python-diamond/Diamond) is a Python daemon that
-collects metrics.  This snap plugin wraps diamond plugins so they can be easily
+collects metrics.  This snap plugin wraps Diamond plugins so they can be easily
 consumed by [Snap](http://github.com/intelsdi-x/snap).
 
 1. [Getting started](#getting-started)
  * [System requirements](#system-requirements)
  * [Installation](#installation)
- * [How it works](#how-it-works)
+ * [Example](#example)
 2. [Roadmap](#roadmap)
 3. [Community support](#community-support)
 4. [Contributing](#contributing)
@@ -20,7 +20,7 @@ consumed by [Snap](http://github.com/intelsdi-x/snap).
 
 ### System requirements
 
-* python2 (>=2.7) or python3
+* Python2 (>=2.7) or Python3
 * Linux
 * For building a package of the plugin
   * [acbuild](https://github.com/containers/build) required for create a package
@@ -36,13 +36,34 @@ You can get the pre-built plugin package for Linux (x86-64) [here](http://snap.c
 
 You will need to be on Linux with Python 2.7 or Python3 and a virtualenv activated.
 
+I use and recommend using [pyenv](https://github.com/yyuu/pyenv) to manager
+Python version and environments.  Checkout
+[pyenv-installer](https://github.com/yyuu/pyenv-installer) for an
+easy installation that includes pyenv-virtualenv.  The directions below assume
+that you have installed pyenv with pyenv-virtualenv.
+
+Run the following commands from the root of the repository.
+
+Download Python:
+`pyenv install 2.7.12`
+
+Create a virtualenv:
+`pyenv virtualenv --always-copy 2.7.12 diamond27`
+
+Activate the virtualenv:
+`pyenv local diamond27`
+
+Make the virtualenv relocatable:
+`pip install virtualenv`
+`virtualenv --relocatable $VIRTUAL_ENV`
+
 Install the Python deps:
 `pip install -r requirements.txt`
 
 Create the plugin package:
 `scripts/pkg.sh`
 
-### How it works
+### Example
 
 #### Start snapteld
 
@@ -87,12 +108,12 @@ py/plugin_authoring/packaging.html).
 `snaptel plugin load snap-plugin-collector-diamond.aci`
 
 An alternative approach would be to load the snap_diamond.py file however this
-would require that the python environment available to the user running
+would require that the Python environment available to the user running
 `snapteld` have all dependencies installed to it.
 
 #### Start a task
 
-After starting snapd and loading the plugin we will load the following task.
+After starting snapteld and loading the plugin we will load the following task.
 
 ```
 ---
@@ -125,6 +146,8 @@ This repository is one of **many** plugins in **Snap**, a powerful telemetry fra
 We love contributions!
 
 There's more than one way to give back, from examples to blogs to code updates. See our recommended process in [CONTRIBUTING.md](CONTRIBUTING.md).
+
+Our code of conduct can be found [here](https://github.com/intelsdi-x/snap/blob/master/CODE_OF_CONDUCT.md).
 
 ## License
 [Snap](http://github.com/intelsdi-x/snap), along with this plugin, is an Open Source software released under the Apache 2.0 [License](LICENSE).
