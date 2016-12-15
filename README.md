@@ -22,8 +22,8 @@ consumed by [Snap](http://github.com/intelsdi-x/snap).
 
 * Python2 (>=2.7) or Python3
 * Linux
-* For building a package of the plugin
-  * [acbuild](https://github.com/containers/build) required for create a package
+* For building a package of the plugin (REWORD) 
+  * [acbuild](https://github.com/containers/build) required for create a package (REWORD)
   * virtualenv or pyenv (see: [virtualenv primer](https://realpython.com/blog/python/python-virtual-environments-a-primer/))
 
 ### Installation
@@ -36,7 +36,7 @@ You can get the pre-built plugin package for Linux (x86-64) [here](http://snap.c
 
 You will need to be on Linux with Python 2.7 or Python3 and a virtualenv activated.
 
-I use and recommend using [pyenv](https://github.com/yyuu/pyenv) to manager
+I use and recommend using [pyenv](https://github.com/yyuu/pyenv) to manage my
 Python version and environments.  Checkout
 [pyenv-installer](https://github.com/yyuu/pyenv-installer) for an
 easy installation that includes pyenv-virtualenv.  The directions below assume
@@ -93,7 +93,7 @@ collectors needs to be present with entries for 'collectors_path' and
                     }}
 ```
 
-Starting snapteld with the above config:
+To start snapteld with the above config use this command:
 ```snapteld -t 0 -l 1 --config diamond.yml```
 
 #### Load the plugin
@@ -109,7 +109,7 @@ py/plugin_authoring/packaging.html).
 
 An alternative approach would be to load the snap_diamond.py file however this
 would require that the Python environment available to the user running
-`snapteld` have all dependencies installed to it.
+`snapteld` has all dependencies installed to it.
 
 #### Start a task
 
